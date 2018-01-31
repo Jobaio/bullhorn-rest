@@ -139,7 +139,8 @@ module Bullhorn
           if options[:file_methods]
             define_method("put_#{entity}_file") do |id, attributes = {}|
               path = "file/#{name}/#{id}"
-              res = conn.put path, attributes
+              headers = {'content-type' => 'application/json;charset=UTF-8'}
+              res = conn.put path, attributes.to_json, headers
               Hashie::Mash.new JSON.parse(res.body)
             end
           end
