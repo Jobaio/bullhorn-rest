@@ -5,7 +5,7 @@ module Entities
 module JobOrder
   extend Base
 
-  define_methods(:owner_methods => true)
+  define_methods(:owner_methods => true, :file_methods => true)
 end
 
 end
